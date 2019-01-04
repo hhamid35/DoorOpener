@@ -46,6 +46,16 @@ The installation process is fairly simple and straight forward:
 
 When Pi boots, push button and system is initialized.
 
+The Door Opener project is intended to be run on a RaspberryPI (all revisons with a minimum of 4 USB ports) and be used with any Vera and Alexa devices thus the following installation guide provided is for that specific intent, although the source code can be implemented on other devices but will not be covered in this installation guide.
+
+Steps:
+1. Go to https://home.getvera.com/users/login and register your Vera controller (your home network must be enabled for port forwarding).
+2. Follow the guide in the following link https://support.getvera.com/customer/portal/articles/2648086 to add your Alexa device of choice to the ecosystem.
+3. Connect the two RFID readers to ports ttyUSB0 and ttyUSB1 on your Pi device.
+4. Add the relay device to port ttyUSB2 on your Pi device.
+5. Turn on your Pi device, install the Door Opener source code and open a terminal window.
+6. 
+
 ## Usage
 * Write walk Michael talked about
 * Include snippets of code
