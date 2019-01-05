@@ -49,7 +49,7 @@ Steps:
 cd /home/DoorOpener
 python doormain.py
 ```
-These commands will run the code once, if you would like to run the code continuisly and not have to retype these commands after each reboot you can use the folling commans instead:
+These commands will run the code once, if you would like to run the code continuisly and not have to retype these commands after each reboot you can use the follwing commans instead:
 ```
 cd /home/DoorOpener
 python doormain.py
