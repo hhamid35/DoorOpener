@@ -50,11 +50,16 @@ The Door Opener project is intended to be run on a RaspberryPI (all revisons wit
 
 Steps:
 1. Go to https://home.getvera.com/users/login and register your Vera controller (your home network must be enabled for port forwarding).
+2. Pair your z-wave door contact sensor to your vera hub using the following link https://support.getvera.com/customer/en/portal/articles/2949040-how-to-pair-z-wave-devices?b_id=712 and connect the sensor terminals to a usb connector and plug it into port ttyUSB3 of your Pi device.
 2. Follow the guide in the following link https://support.getvera.com/customer/portal/articles/2648086 to add your Alexa device of choice to the ecosystem.
 3. Connect the two RFID readers to ports ttyUSB0 and ttyUSB1 on your Pi device.
 4. Add the relay device to port ttyUSB2 on your Pi device.
-5. Turn on your Pi device, install the Door Opener source code and open a terminal window.
-6. 
+5. Turn on your Pi device, download the Door Opener source code and save it into your home directory.
+6. To initiate the Door Opener software one must run doormain.py and this can be done by opening a terminal windown on your Raspberry Pi and typing in the following commands:
+```
+cd /home/DoorOpener
+python doormain.py
+```
 
 ## Usage
 * Write walk Michael talked about
