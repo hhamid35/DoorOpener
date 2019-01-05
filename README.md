@@ -33,37 +33,46 @@ We hope that for whatever reason, whether it be as an electronic hobbyist or as 
 ![tetra - hw schematc final](https://user-images.githubusercontent.com/20260964/50591673-ca952f00-0e5e-11e9-99dc-36fbd32591af.png)
 
 
-
 ## Installation
 
-***WHAT THE USER NEEDS TO CHANGE WITHIN THE CODE*** 
-
--> Vera IP / other Z-Wave Hub
--> RFID Keys
--> USB / device labelling (depending on how the user wires it)
-
-The installation process is fairly simple and straight forward:
-
-When Pi boots, push button and system is initialized.
-
-The Door Opener project is intended to be run on a RaspberryPI (all revisons with a minimum of 4 USB ports) and be used with any Vera and Alexa devices thus the following installation guide provided is for that specific intent, although the source code can be implemented on other devices but will not be covered in this installation guide.
+The Door Opener project is intended to be run on any Raspberry PI (with a minimum of 4 USB ports) and be used with any Vera and Alexa devices thus the following installation guide provided is for that specific intent, although the source code can be implemented on other devices but will not be covered in this installation guide.
 
 Steps:
-1. Go to https://home.getvera.com/users/login and register your Vera controller (your home network must be enabled for port forwarding).
+1. Go to https://home.getvera.com/users/login and register your Vera controller (your home router must be enabled for port forwarding).
 2. Pair your z-wave door contact sensor to your vera hub using the following link https://support.getvera.com/customer/en/portal/articles/2949040-how-to-pair-z-wave-devices?b_id=712 and connect the sensor terminals to a usb connector and plug it into port ttyUSB3 of your Pi device.
 2. Follow the guide in the following link https://support.getvera.com/customer/portal/articles/2648086 to add your Alexa device of choice to the ecosystem.
 3. Connect the two RFID readers to ports ttyUSB0 and ttyUSB1 on your Pi device.
-4. Add the relay device to port ttyUSB2 on your Pi device.
-5. Turn on your Pi device, download the Door Opener source code and save it into your home directory.
+4. Add the relay device to port ttyUSB2 on your Pi device and wire those relays accordingly to your pre-existing door automation system.
+5. Turn on your Raspberry Pi device, download the Door Opener source code and save it into your home directory.
 6. To initiate the Door Opener software one must run doormain.py and this can be done by opening a terminal windown on your Raspberry Pi and typing in the following commands:
 ```
 cd /home/DoorOpener
 python doormain.py
 ```
+These commands will run the code once, if you would like to run the code continuisly and not have to retype these commands after each reboot you can use the folling commans instead:
+```
+cd /home/DoorOpener
+python doormain.py
+```
+followed by:
+```
+sudo reboot
+```
+to reboot the device.
 
 ## Usage
-* Write walk Michael talked about
-* Include snippets of code
+
+The Door Opener system is intended to be used in conjuction with your current push plate hardware in your automated door system. It only requires the addition of a Z-Wave compatible door lock, your Alexa devide of choice, 2 RFID readers and RFID key tags, an iPad (opional), a Vera hub and a Raspberry Pi.
+
+The Door Opener software is self contained and complete and those not need additional code to work and can be used as is. In the case where the timining of relay triggers and open delays are not optimal for use or do not function as wanted, the CONFIG file can be edited in the following lines:
+```
+strikeRelay /dev/ttyUSB2 1 4    # relay 1, hold 4 sec
+doorRelay   /dev/ttyUSB2 2 4    # relay 1, hold 1 sec
+openDelay   1.5         # time delay for door to open
+```
+The hold time for each relay and the delay time can be changed for better performance.
+
+All valid RFID key tags are stored in the rfid.db file and it can be opened in any plane text editior to add or remove key tags.
 
 ## License
 This file is part of DoorOpener. DoorOpener is free software: you can
